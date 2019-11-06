@@ -1,5 +1,7 @@
 # Closures, Callbacks and Array Methods
 
+Name: Taylor Olson
+
 This challenge focuses on closures, callbacks and array methods.
 
 You are encouraged to use the [MDN website](https://developer.mozilla.org/en-US/) as well as Google, to figure things out.
