@@ -198,9 +198,14 @@ return fullNames;
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
-  /* CODE HERE */
+function firstNamesAllCaps(runners) {
+const names = runners.map(function (runners) {
+    return (runners.first_name).toUpperCase();
+  });
+  return names;
 }
+
+// TAYLOR study why on this one the first_name works but firstName does not..????
 
 /**
  * ### Challenge `getRunnersByTShirtSize`
@@ -215,8 +220,11 @@ function firstNamesAllCaps(/* CODE HERE */) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-  /* CODE HERE */
+function getRunnersByTShirtSize(runners, tShirtSize) {
+const shirts = runners.filter(function (runners) {
+    return runners.shirt_size === tShirtSize;
+  })
+  return shirts;
 }
 
 /**
@@ -229,8 +237,11 @@ function getRunnersByTShirtSize(/* CODE HERE */) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
-  /* CODE HERE */
+function tallyUpDonations(runners) {
+  let sum = runners.reduce(function (accum, num) {
+    return accum + num.donation;
+  }, 0);
+  return sum;
 }
 
 /////////////// CLOSURES ///////////////
@@ -249,15 +260,12 @@ function tallyUpDonations(/* CODE HERE */) {
  * counter() // should return 2
  * etc
 */
-function counterMaker() {
-  // BROKEN CODE STARTS
-  const count = 0;
-  function counter() {
-    ++count
-  }
+//
   // BROKEN CODE ENDS
-}
 
+function counterMaker() {
+  counterMaker + 1;
+}
 /**
  * ### Challenge `counterMakerWithLimit`
  * 
@@ -278,7 +286,7 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
+function counterMakerWithLimit() {
   /* CODE HERE */
 }
 
