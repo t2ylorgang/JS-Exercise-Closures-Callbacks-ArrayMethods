@@ -49,8 +49,8 @@ function processFirstItem(stringList, callback) {
  * should return "There are 0".
 */
 function processLength(list, callback) {
-  return callback(list.length);
-}
+  return callback(list.length)
+};
 
 /**
  * ### Challenge `processLastItem`
@@ -67,8 +67,8 @@ function processLength(list, callback) {
  * should return 'barbar'.
 */
 function processLastItem(stringList, callback) {
-  return callback(stringList.slice(-1)[0]);
-}
+  return callback(stringList.slice(-1)[0])
+};
 
 /**
  * ### Challenge `processSum`
@@ -88,8 +88,15 @@ function processLastItem(stringList, callback) {
  * should return 1000.
 */
 function processSum(numberList, callback) {
-  return callback (numberList.reduce((a, b) => a + b, 0));
-}
+  return callback(numberList.reduce((item1, item2) => item1 + item2, 0));
+};
+
+// WHAT ARE A AND B IN THIS PROBLEM? Callback and accumulator? SO I changed a and b to item1 and item2
+// and the function still worked... This shows me that a and b can be anything you want to name them
+// and they are just placeholders for the "nth and nth" numbers the function happens to be adding at the time
+// starting with the 0 index. In other words "item1" is just a number in the array, which is being 
+// added to "item2" another number in the array (numberList in this case) and they change
+// as the function iterates through the array.
 
 /**
  * ### Challenge `processProduct`
@@ -111,7 +118,7 @@ function processSum(numberList, callback) {
 */
 function processProduct(num1, num2, callback) {
   return callback(num1 * num2);
-}
+};
 
 /**
  * ### Challenge `processContains`
@@ -135,7 +142,7 @@ function processProduct(num1, num2, callback) {
 */
 function processContains(item, list, callback) {
   return callback(list.includes(item));
-}
+};
 
 /**
  * ### Challenge `processDuplicateFree`
@@ -180,12 +187,11 @@ function processDuplicateFree() {
 */
 function getFullNames(runners) {
   const fullNames = [];
-  runners.forEach(function (runners) {
-    fullNames.push(runners.lastName + `, `+ runners.firstName);
-});
+  runners.forEach(function(runners) {
+    fullNames.push(runners.lastName + `, ` + runners.firstName);
+  });
 return fullNames;
-}
-
+};
 /**
  * ### Challenge `firstNamesAllCaps`
  * 
@@ -199,13 +205,9 @@ return fullNames;
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
 function firstNamesAllCaps(runners) {
-const names = runners.map(function (runners) {
-    return (runners.first_name).toUpperCase();
-  });
-  return names;
-}
-
-// TAYLOR study why on this one the first_name works but firstName does not..????
+  
+// TAYLOR study why on this one the first_name works but firstName does not..???? SYNTAX is why!
+// it has to be the same exact as what is used in the array.
 
 /**
  * ### Challenge `getRunnersByTShirtSize`
@@ -221,11 +223,11 @@ const names = runners.map(function (runners) {
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
 function getRunnersByTShirtSize(runners, tShirtSize) {
-const shirts = runners.filter(function (runners) {
-    return runners.shirt_size === tShirtSize;
-  })
-  return shirts;
-}
+const shirtFilter = runners.filter(function(item) {
+  return item.shirt_size === tShirtSize;
+})
+return shirtFilter;
+};
 
 /**
  * ### Challenge `tallyUpDonations`
@@ -263,52 +265,52 @@ function tallyUpDonations(runners) {
 //
   // BROKEN CODE ENDS
 
-function counterMaker() {
-  counterMaker + 1;
-}
-/**
- * ### Challenge `counterMakerWithLimit`
- * 
- * @instructions
- * Implement a counter maker that takes a max value for the count.
- * A counter created with it will reset itself after reaching the max value.
- * Usage is as follows:
- * 
- * const counter = counterMakerWithLimit(3)
- * counter() // should return 0
- * counter() // should return 1
- * counter() // should return 2
- * counter() // should return 3
- * counter() // should return 0
- * counter() // should return 1
- * counter() // should return 2
- * counter() // should return 3
- * counter() // should return 0
- * etc
-*/
-function counterMakerWithLimit() {
-  /* CODE HERE */
-}
-
-/////////////// END OF CHALLENGE ///////////////
-/////////////// END OF CHALLENGE ///////////////
-/////////////// END OF CHALLENGE ///////////////
-
-if (typeof exports !== 'undefined') {
-  // IGNORE: Test/Env Detected
-  // For Node/Non-browser test env
-  module.exports = module.exports || {}
-  if (processFirstItem) { module.exports.processFirstItem = processFirstItem }
-  if (processLength) { module.exports.processLength = processLength }
-  if (processLastItem) { module.exports.processLastItem = processLastItem }
-  if (processSum) { module.exports.processSum = processSum }
-  if (processProduct) { module.exports.processProduct = processProduct }
-  if (processContains) { module.exports.processContains = processContains }
-  if (processDuplicateFree) { module.exports.processDuplicateFree = processDuplicateFree }
-  if (getFullNames) { module.exports.getFullNames = getFullNames }
-  if (firstNamesAllCaps) { module.exports.firstNamesAllCaps = firstNamesAllCaps }
-  if (getRunnersByTShirtSize) { module.exports.getRunnersByTShirtSize = getRunnersByTShirtSize }
-  if (tallyUpDonations) { module.exports.tallyUpDonations = tallyUpDonations }
-  if (counterMaker) { module.exports.counterMaker = counterMaker }
-  if (counterMakerWithLimit) { module.exports.counterMakerWithLimit = counterMakerWithLimit }
-}
+  function counterMaker() {
+    counterMaker + 1;
+  }
+  /**
+   * ### Challenge `counterMakerWithLimit`
+   * 
+   * @instructions
+   * Implement a counter maker that takes a max value for the count.
+   * A counter created with it will reset itself after reaching the max value.
+   * Usage is as follows:
+   * 
+   * const counter = counterMakerWithLimit(3)
+   * counter() // should return 0
+   * counter() // should return 1
+   * counter() // should return 2
+   * counter() // should return 3
+   * counter() // should return 0
+   * counter() // should return 1
+   * counter() // should return 2
+   * counter() // should return 3
+   * counter() // should return 0
+   * etc
+  */
+  function counterMakerWithLimit() {
+    /* CODE HERE */
+  }
+  
+  /////////////// END OF CHALLENGE ///////////////
+  /////////////// END OF CHALLENGE ///////////////
+  /////////////// END OF CHALLENGE ///////////////
+  
+  if (typeof exports !== 'undefined') {
+    // IGNORE: Test/Env Detected
+    // For Node/Non-browser test env
+    module.exports = module.exports || {}
+    if (processFirstItem) { module.exports.processFirstItem = processFirstItem }
+    if (processLength) { module.exports.processLength = processLength }
+    if (processLastItem) { module.exports.processLastItem = processLastItem }
+    if (processSum) { module.exports.processSum = processSum }
+    if (processProduct) { module.exports.processProduct = processProduct }
+    if (processContains) { module.exports.processContains = processContains }
+    if (processDuplicateFree) { module.exports.processDuplicateFree = processDuplicateFree }
+    if (getFullNames) { module.exports.getFullNames = getFullNames }
+    if (firstNamesAllCaps) { module.exports.firstNamesAllCaps = firstNamesAllCaps }
+    if (getRunnersByTShirtSize) { module.exports.getRunnersByTShirtSize = getRunnersByTShirtSize }
+    if (tallyUpDonations) { module.exports.tallyUpDonations = tallyUpDonations }
+    if (counterMaker) { module.exports.counterMaker = counterMaker }
+    if (counterMakerWithLimit) { module.exports.counterMakerWithLimit = counterMakerWithLimit }
+  }
